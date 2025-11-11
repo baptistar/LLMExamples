@@ -9,9 +9,10 @@ class LLM:
             self.model      = Qwen2_5_VLForConditionalGeneration.from_pretrained(self.model_name)
         else:
             self.model      = AutoModelForCausalLM.from_pretrained(self.model_name)
-        self.max_tokens = 500
+        self.max_tokens  = 500
+        self.temperature = 1.0
 
-    def generate(self, messages, verbose=True):
+    def generate(self, messages, verbose=True, stochastic=False):
         inputs = self.tokenizer.apply_chat_template(
         	messages,
         	add_generation_prompt=True,
@@ -19,7 +20,9 @@ class LLM:
         	return_dict=True,
         	return_tensors="pt",
         ).to(self.model.device)
-        outputs = self.model.generate(**inputs, max_new_tokens=500)
+        outputs = self.model.generate(**inputs, max_new_tokens=self.max_tokens, 
+						do_sample=stochastic)
+						#temperature=self.temperature)
         reply = self.tokenizer.decode(outputs[0][inputs["input_ids"].shape[-1]:])
         if verbose == True:
             print(self.model_name+': ', reply)
