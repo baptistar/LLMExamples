@@ -10,9 +10,7 @@ QW = LLM(model_name)
 
 # Load the image locally
 image_path = "file:///Users/ricardobaptista/Documents/Research/LLMPrompting/LLMExamples/NS.png"
-#image_path = "https://www.fdy.tu-darmstadt.de/media/fachgebiet_fdy/fdy_forschung_bilder/area_compressible_1300x0.png"
 image_size = 128**2
-#prompt = "Describe what you see in this image </img>."
 prompt =  "Describe this image representing the solution to Navier Stokes equation. Does the field appear to be turbulent? </img>."
 
 # Add user input to conversation
@@ -44,7 +42,7 @@ inputs = processor(
 )
 
 # # Inference: Generation of the output
-generated_ids = QW.model.generate(**inputs, max_new_tokens=512)
+generated_ids = QW.model.generate(**inputs, max_new_tokens=512, do_sample=False)
 generated_ids_trimmed = [
     out_ids[len(in_ids) :] for in_ids, out_ids in zip(inputs.input_ids, generated_ids)
 ]

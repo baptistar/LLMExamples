@@ -22,7 +22,7 @@ class LLM:
         ).to(self.model.device)
         outputs = self.model.generate(**inputs, max_new_tokens=self.max_tokens, 
 						do_sample=stochastic)
-						#temperature=self.temperature)
+						temperature=self.temperature)
         reply = self.tokenizer.decode(outputs[0][inputs["input_ids"].shape[-1]:])
         if verbose == True:
             print(self.model_name+': ', reply)
