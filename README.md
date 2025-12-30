@@ -5,6 +5,7 @@ Applications of Autoregressive LLMs using the Qwen model family on a variety of 
 # Authors
 
 Ricardo Baptista (Toronto), Andrew Stuart (Caltech), Son Tran (Amazon)
+
 E-mails: r.baptista@utoronto.ca, astuart@caltech.edu, sontran@amazon.com
 
 # Preprint
