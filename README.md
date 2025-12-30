@@ -1,6 +1,6 @@
 # LLM Examples
 
-Applications of Autoregressive LLMs using the Qwen model family on a variety of text generation tasks. These tasks include: Question-Answering, Conversations, Mathematics, Coding, Translation, Summarization, and Multimodal Processing and Generation  
+Applications of Autoregressive LLMs using the Qwen model family on a variety of text generation tasks. These tasks include: Question-Answering, Conversations, Mathematics, Coding, Translation, Summarization, and Multimodal Processing and Generation.
 
 # Authors
 
